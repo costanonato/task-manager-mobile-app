@@ -1,0 +1,12 @@
+app/**/*.js
+*.js.map
+hooks/
+node_modules/
+platforms/
+npm-debug.log
+.DS_Store
+lib/
+tmp/
+typings/
+
+report/
