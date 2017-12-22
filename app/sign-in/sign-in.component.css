@@ -1,0 +1,16 @@
+.page{
+  background-image: url("~/images/bg.jpg");
+  background-position: center;
+}
+
+.form{
+  background-color: #fff;
+  padding: 7px;
+  margin: 35px 20px 0 20px;
+}
+
+Image{
+  width: 140px;
+  height: 140px;
+  margin: 14px;
+}

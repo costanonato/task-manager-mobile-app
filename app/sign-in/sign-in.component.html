@@ -1,10 +1,10 @@
-<ActionBar title="Fazer Login" class="action-bar"></ActionBar>
+<ActionBar title="TaskManager - Login" class="action-bar"></ActionBar>
 
 <StackLayout class="page">
 
-  <Image src="~/images/app_icon.png" stretch="false" horizontalAlignment="center" class="m-20"></Image>
-
   <StackLayout class="form">
+    <Image src="~/images/app_icon.png"></Image>
+  
     <StackLayout class="input-field">
       <Label text="Email" class="label font-weight-bold m-b-5"></Label>
       <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
@@ -16,8 +16,8 @@
       <TextField class="input" secure="true"></TextField>
       <StackLayout class="hr-light"></StackLayout>
     </StackLayout>
+    
+    <Button text="Entrar" class="btn btn-primary"></Button>
   </StackLayout>
-
-  <Button text="Entrar" class="btn btn-primary"></Button>
 
 </StackLayout>
