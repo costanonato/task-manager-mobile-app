@@ -9,7 +9,7 @@ import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-t
 export class AppComponent {
     public constructor(private tokenService: NSAngular2TokenService){
         this.tokenService.init({
-            apiBase: "http://urldaapi",
+            apiBase: "http://10.0.3.3:3000",
             globalOptions: {
                 headers: {
                     "Content-Type": "application/json",
@@ -17,5 +17,11 @@ export class AppComponent {
                 }
             }
         })
+
+        this.tokenService.signIn({
+            email: "costa@nonato.com",
+            password: "123456"
+        }).subscribe(res => console.dir(res))
+
     }
 }

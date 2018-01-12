@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-// import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { NativeScriptHttpModule } from "nativescript-angular/http";
 
 // import pages
 import { SignInComponent } from "./sign-in/sign-in.component";
@@ -21,7 +21,8 @@ import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-t
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptHttpModule
     ],
     declarations: [
         AppComponent,
