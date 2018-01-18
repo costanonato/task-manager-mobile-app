@@ -17,11 +17,5 @@ export class AppComponent {
         }
       }
     })
-
-    this.tokenService.signIn({
-      email: "costa@nonato.com",
-      password: "123456"
-    }).subscribe(res => console.dir(res))
-
   }
 }
