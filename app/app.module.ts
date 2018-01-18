@@ -17,23 +17,23 @@ import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-t
 
 @NgModule({
     bootstrap: [
-        AppComponent
+      AppComponent
     ],
     imports: [
-        NativeScriptModule,
-        AppRoutingModule,
-        NativeScriptHttpModule
+      NativeScriptModule,
+      AppRoutingModule,
+      NativeScriptHttpModule
     ],
     declarations: [
-        AppComponent,
-        SignInComponent,
-        SignUpComponent
+      AppComponent,
+      SignInComponent,
+      SignUpComponent
     ],
     providers: [
-        NSAngular2TokenService
+      NSAngular2TokenService
     ],
     schemas: [
-        NO_ERRORS_SCHEMA
+      NO_ERRORS_SCHEMA
     ]
 })
 /*
