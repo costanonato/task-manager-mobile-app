@@ -1,28 +1,45 @@
+// angular imports
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { AppRoutingModule } from "./app.routing";
-import { AppComponent } from "./app.component";
 
-// Uncomment and add to NgModule imports if you need to use two-way binding
+// nativescript imports
+import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
-// Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-import { NativeScriptHttpModule } from "nativescript-angular/http";
+// app core imports
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app.routing";
 
-// import pages
+// components imports
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
-import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-token.service";
+// service imports
+import { AuthGuard } from "./guards/auth.guard";
+import { AuthService } from "./shared/auth.service";
+import { TokenService } from "./shared/token.service";
+
+// rxjs operators
+import "rxjs/add/operator/catch";
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/distinctUntilChanged";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/switchMap";
+
+// rxjs extensions
+import "rxjs/add/observable/of";
+import "rxjs/add/observable/throw";
+
 
 @NgModule({
     bootstrap: [
       AppComponent
     ],
     imports: [
-      NativeScriptModule,
       AppRoutingModule,
-      NativeScriptHttpModule
+      NativeScriptHttpModule,
+      NativeScriptModule
+      
     ],
     declarations: [
       AppComponent,
@@ -30,7 +47,9 @@ import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-t
       SignUpComponent
     ],
     providers: [
-      NSAngular2TokenService
+      AuthGuard,
+      AuthService,
+      TokenService
     ],
     schemas: [
       NO_ERRORS_SCHEMA
