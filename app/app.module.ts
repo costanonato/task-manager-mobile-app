@@ -11,6 +11,7 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app.routing";
 
 // components imports
+import { HomeComponent } from "./home/home.component";
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
@@ -43,6 +44,7 @@ import "rxjs/add/observable/throw";
     ],
     declarations: [
       AppComponent,
+      HomeComponent,
       SignInComponent,
       SignUpComponent
     ],
