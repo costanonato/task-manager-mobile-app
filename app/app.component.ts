@@ -16,6 +16,6 @@ export class AppComponent {
           "Accept": "application/vnd.taskmanager.v2"
         }
       }
-    })
+    });
   }
 }
