@@ -2,33 +2,67 @@
 
 <ScrollView>
   <StackLayout class="page">
-    <StackLayout class="form">
+    <StackLayout class="form" [formGroup]="form">
+
+      <!-- name -->
       <StackLayout class="input-field">
         <Label text="Nome" class="label font-weight-bold m-b-5"></Label>
-        <TextField class="input"></TextField>
+        <TextField class="input" formControlName="name"></TextField>
         <StackLayout class="hr-light"></StackLayout>
+
+        <StackLayout *ngIf="form.get('name').invalid && form.get('name').dirty">
+          <Label *ngIf="form.get('name').errors.required" class="text-right text-danger" text="campo obrigatório"></Label>
+          <Label *ngIf="form.get('name').errors.minlength" class="text-right text-danger" text="deve ter no mínimo 5 caracteres"></Label>
+          <Label *ngIf="form.get('name').errors.maxlength" class="text-right text-danger" text="deve ter no máximo 100 caracteres"></Label>
+        </StackLayout>
       </StackLayout>
 
+      <!-- email -->
       <StackLayout class="input-field">
         <Label text="Email" class="label font-weight-bold m-b-5"></Label>
-        <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
+        <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false" formControlName="email"></TextField>
         <StackLayout class="hr-light"></StackLayout>
+        
+        <StackLayout *ngIf="form.get('email').invalid && form.get('email').dirty">
+          <Label *ngIf="form.get('email').errors.required" class="text-right text-danger" text="campo obrigatório"></Label>
+          <Label *ngIf="form.get('email').errors.email" class="text-right text-danger" text="email inválido"></Label>
+        </StackLayout>
       </StackLayout>
 
+      <!-- password -->
       <StackLayout class="input-field">
         <Label text="Senha" class="label font-weight-bold m-b-5"></Label>
-        <TextField class="input" secure="true"></TextField>
+        <TextField class="input" secure="true" formControlName="password"></TextField>
         <StackLayout class="hr-light"></StackLayout>
+        
+        <StackLayout *ngIf="form.get('password').invalid && form.get('password').dirty">
+          <Label *ngIf="form.get('password').errors.required" class="text-right text-danger" text="campo obrigatório"></Label>
+          <Label *ngIf="form.get('password').errors.minlength" class="text-right text-danger" text="deve ter no mínimo 8 caracteres"></Label>
+        </StackLayout>
       </StackLayout>
-      
+
+      <!-- passwordConfirmation -->
       <StackLayout class="input-field">
         <Label text="Confirmação de Senha" class="label font-weight-bold m-b-5"></Label>
-        <TextField class="input" secure="true"></TextField>
+        <TextField class="input" secure="true" formControlName="passwordConfirmation"></TextField>
         <StackLayout class="hr-light"></StackLayout>
+        
+        <StackLayout *ngIf="form.get('passwordConfirmation').invalid && form.get('passwordConfirmation').dirty">
+          <Label *ngIf="form.get('passwordConfirmation').errors.required" class="text-right text-danger" text="campo obrigatório"></Label>
+          <Label *ngIf="form.get('passwordConfirmation').errors.mismatch" class="text-right text-danger" text="deve ser igual a senha"></Label>
+        </StackLayout>
       </StackLayout>
+
+      <!-- formErrors -->
+      <StackLayout *ngIf="formErrors" class="formErrors">
+        <Label class="font-weight-bold" text="Ocorreu um erro na criação da sua conta"></Label>
+        <Label *ngFor="let error of formErrors" [text]="error" class="text-danger" textWrap="true"></Label>
+      </StackLayout>
+      
+      <!-- buttons -->
+      <Button text="Criar Conta" class="btn btn-primary" [isEnabled]="form.valid && !submitted" (tap)="signUpUser()"></Button>
+      <Button text="Login" class="btn btn-outline" nsRouterLink="/sign-in" pageTransition="slideBottom"></Button>
+
     </StackLayout>
-    
-    <Button text="Criar Conta" class="btn btn-primary"></Button>
-    <Button text="Login" class="btn btn-outline" nsRouterLink="/sign-in" pageTransition="slideBottom"></Button>
   </StackLayout>
 </ScrollView>
