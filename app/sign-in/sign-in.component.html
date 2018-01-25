@@ -35,6 +35,9 @@
         <Label *ngFor="let error of formErrors" [text]="error" class="text-danger" textWrap="true"></Label>
       </StackLayout>
 
+      <!-- ActivityIndicator -->
+      <ActivityIndicator [busy]="submitted" *ngIf="submitted" horizontalAlignment="center"></ActivityIndicator>
+
       <!-- buttons -->
       <Button text="Entrar" class="btn btn-primary" [isEnabled]="form.valid && !submitted" (tap)="signInUser()"></Button>
       <Button text="Criar Conta" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></Button>
