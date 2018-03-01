@@ -18,6 +18,12 @@ refer to http://docs.nativescript.org/ui/theme.
 .formErrors{
   background-color: #f4d7d8;
   margin: 20px;
-  padding: 10px
+  padding: 10px;
 }
 
+.fa {
+  font-family: "fontawesome-webfont";
+  font-size: 28px;
+  color: #964945;
+  vertical-align: middle;
+}
