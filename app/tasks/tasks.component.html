@@ -2,16 +2,16 @@
 
 <GridLayout class="page" rows="auto, *">
   <GridLayout row="0" columns="*, auto" class="form">
-    <TextField col="0" class="input" hint="digite uma tarefa"></TextField>
-    <Label col="1" [text]="icons.get('add')" class="fa"></Label>
+    <TextField col="0" class="input" hint="digite uma tarefa" [(ngModel)]="newTask.title" (returnPress)="createTask()"></TextField>
+    <Label col="1" [text]="icons.get('add')" class="fa" (tap)="createTask()"></Label>
   </GridLayout>
 
   <ListView class="list-group" row="1" [items]="tasks">
     <ng-template let-task="item">
       <GridLayout class="list-group-item" columns="35px, *, auto">
-        <Label col="0" [text]="checkboxIcon(task)" class="fa"></Label>
+        <Label col="0" [text]="checkboxIcon(task)" class="fa" (tap)="taskDone(task)"></Label>
         <Label col="1" [text]="task.title" class="list-group-item-text" [class.done-task]="task.done"></Label>
-        <Label col="2" [text]="icons.get('trash')" class="fa"></Label>
+        <Label col="2" [text]="icons.get('trash')" class="fa" (tap)="deleteTask(task)"></Label>
       </GridLayout>
     </ng-template>
   </ListView>
