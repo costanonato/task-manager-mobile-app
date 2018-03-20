@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { Task } from './shared/task.model';
 import { TaskService } from './shared/task.service';
@@ -18,7 +19,7 @@ export class TasksComponent{
   public icons: Map<string, string> = new Map<string, string>();
 
 
-  public constructor(private taskService: TaskService){
+  public constructor(private taskService: TaskService, private router: Router){
     this.newTask = new Task(null, '');
     this.setIcons();
   }
@@ -75,6 +76,12 @@ export class TasksComponent{
         alert("Ocorreu um no servidor, tente mais tarde.");
       }
     })
+  }
+
+
+  public gotoTaskDetail(args){
+    let task = this.tasks[args.index];
+    this.router.navigate(["/tasks", task.id])
   }
 
   
