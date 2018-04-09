@@ -12,6 +12,7 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app.routing";
 
 // components imports
+import { DateTimePickerModalComponent } from "./datetime-picker-modal/datetime-picker-modal.component";
 import { HomeComponent } from "./home/home.component";
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
@@ -21,6 +22,7 @@ import { TaskDetailComponent } from "./tasks/task-detail/task-detail.component";
 // service imports
 import { AuthGuard } from "./guards/auth.guard";
 import { AuthService } from "./shared/auth.service";
+import { ModalDialogService } from "nativescript-angular/modal-dialog"
 import { TaskService } from "./tasks/shared/task.service";
 import { TokenService } from "./shared/token.service";
 
@@ -49,6 +51,7 @@ import "rxjs/add/observable/throw";
     ],
     declarations: [
       AppComponent,
+      DateTimePickerModalComponent,
       HomeComponent,
       SignInComponent,
       SignUpComponent,
@@ -59,10 +62,14 @@ import "rxjs/add/observable/throw";
       AuthGuard,
       AuthService,
       TaskService,
-      TokenService
+      TokenService,
+      ModalDialogService
     ],
     schemas: [
       NO_ERRORS_SCHEMA
+    ],
+    entryComponents: [
+      DateTimePickerModalComponent
     ]
 })
 /*

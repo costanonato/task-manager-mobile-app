@@ -27,7 +27,7 @@
       <!-- deadline -->
       <StackLayout class="input-field">
         <Label text="Prazo de Entrega" class="label font-weight-bold m-b-5"></Label>
-        <TextField class="input" formControlName="deadline" editable="false"></TextField>
+        <TextField class="input" formControlName="deadline" editable="false" (tap)="showDatetimePickerModal()"></TextField>
         <StackLayout class="hr-light"></StackLayout>
       </StackLayout>
 
