@@ -6,4 +6,8 @@ export class Task{
     public done?: boolean,
     public deadline?: string
   ){}
+
+  public get doneCheckboxString(): string{
+    return this.done ? '[x]' : '[ ]';
+  }
 }

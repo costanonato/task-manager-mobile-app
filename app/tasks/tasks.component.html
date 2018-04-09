@@ -1,4 +1,8 @@
-<ActionBar class="action-bar" title="TaskManager - Tarefas"></ActionBar>
+<ActionBar class="action-bar" title="TaskManager - Tarefas">
+  <ActionItem (tap)="shareTasks()" ios.position="right">
+    <Label [text]="icons.get('share')" class="fa"></Label>
+  </ActionItem>
+</ActionBar>
 
 <GridLayout class="page" rows="auto, *">
   <GridLayout row="0" columns="*, auto" class="form">

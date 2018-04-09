@@ -7,6 +7,8 @@ import { TaskService } from './shared/task.service';
 import * as dialogs from 'ui/dialogs';
 import { Page } from "ui/page";
 
+import * as SocialShare from "nativescript-social-share";
+
 
 @Component({
   selector: "tasks",
@@ -101,10 +103,21 @@ export class TasksComponent{
   }
 
 
+  public shareTasks(){
+    let taskListString = this.tasks
+      .map(task => `${task.doneCheckboxString} ${task.title}`)
+      .join(", \n")
+      .trim();
+
+    SocialShare.shareText(taskListString);
+  }
+
+
   private setIcons(){
     this.icons.set('trash', String.fromCharCode(0xf014));
     this.icons.set('add', String.fromCharCode(0xf055));
     this.icons.set('checked', String.fromCharCode(0xf14a));
     this.icons.set('unchecked', String.fromCharCode(0xf096));
+    this.icons.set('share', String.fromCharCode(0xf045));
   }
 }
