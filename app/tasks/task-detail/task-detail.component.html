@@ -36,12 +36,6 @@
         <Label col="0" text="Tarefa Feita" class="label font-weight-bold m-b-5"></Label>
         <Switch col="1" formControlName="done" class="switch"></Switch>
       </GridLayout>
-
-      <!-- formErrors -->
-      <StackLayout *ngIf="formErrors" class="formErrors">
-        <Label class="font-weight-bold" text="Ocorreu um erro na atualização da tarefa"></Label>
-        <Label *ngFor="let error of formErrors" [text]="error" class="text-danger" textWrap="true"></Label>
-      </StackLayout>
       
       <!-- ActivityIndicator -->
       <ActivityIndicator [busy]="submitted" *ngIf="submitted" horizontalAlignment="center"></ActivityIndicator>
