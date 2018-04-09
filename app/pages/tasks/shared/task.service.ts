@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 
 import { Observable } from "rxjs/Observable";
 
-import { TokenService } from "../../shared/token.service";
+import { TokenService } from "../../../shared/token.service";
 import { Task } from "./task.model";
 
 
