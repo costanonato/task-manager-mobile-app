@@ -13,9 +13,7 @@ export class HomeComponent {
   public constructor(private authService: AuthService, private router: Router){ }
 
   public signOutUser(){
-    this.authService.signOut()
-      .subscribe(
-        () => this.router.navigate(['/sign-in'])
-      )
+    this.authService.signOut().subscribe();
+    this.router.navigate(['/sign-in']);
   }
 }
