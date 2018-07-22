@@ -106,7 +106,7 @@ export class TasksComponent{
   public shareTasks(){
     let taskListString = this.tasks
       .map(task => `${task.doneCheckboxString} ${task.title}`)
-      .join(", \n")
+      .join("\n")
       .trim();
 
     SocialShare.shareText(taskListString);

@@ -8,6 +8,6 @@ export class Task{
   ){}
 
   public get doneCheckboxString(): string{
-    return this.done ? '[x]' : '[ ]';
+    return this.done ? '[x]' : '[  ]';
   }
 }
